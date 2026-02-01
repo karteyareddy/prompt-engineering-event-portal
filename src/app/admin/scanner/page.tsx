@@ -27,8 +27,14 @@ export default function ScannerPage() {
             // Handle the scanned code
             console.log(`Code matched = ${decodedText}`, decodedResult)
             handleScan(decodedText)
-            scanner.clear()
-            setIsScanning(false)
+
+            // Wait for clear to finish before unmounting (hiding) the reader
+            scanner.clear().then(() => {
+                setIsScanning(false)
+            }).catch(err => {
+                console.error("Failed to clear scanner", err)
+                setIsScanning(false)
+            })
         }
 
         function onScanFailure(error: any) {

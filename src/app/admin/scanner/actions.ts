@@ -62,7 +62,7 @@ export async function processScan(qrCode: string) {
     })
 
     if (logError) {
-        return { success: false, message: 'System Error Logging Attendance' }
+        return { success: false, message: `System Error Logging Attendance: ${logError.message}` }
     }
 
     return { success: true, message: 'Access Granted', team }
