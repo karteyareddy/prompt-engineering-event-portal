@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+:root {
+  /* Tech Theme - Dark Mode Default */
+  --radius: 0.5rem;
+
+  /* Deep Abyss Blue/Black Background */
+  --background: oklch(0.12 0.04 260);
+  --foreground: oklch(0.985 0 0);
+
+  /* Card / Surfaces - Slightly lighter */
+  --card: oklch(0.15 0.04 260);
+  --card-foreground: oklch(0.985 0 0);
+
+  --popover: oklch(0.15 0.04 260);
+  --popover-foreground: oklch(0.985 0 0);
+
+  /* Primary: Cyber Cyan */
+  --primary: oklch(0.7 0.15 230);
+  --primary-foreground: oklch(0.12 0.04 260);
+
+  /* Secondary: Neon Purple */
+  --secondary: oklch(0.65 0.2 300);
+  --secondary-foreground: oklch(0.985 0 0);
+
+  /* Muted / Subtile elements */
+  --muted: oklch(0.2 0.04 260);
+  --muted-foreground: oklch(0.7 0.04 260);
+
+  /* Accent: Electric Green */
+  --accent: oklch(0.8 0.15 150);
+  --accent-foreground: oklch(0.12 0.04 260);
+
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  /* Borders & Inputs */
+  --border: oklch(0.3 0.05 260);
+  --input: oklch(0.3 0.05 260);
+  --ring: oklch(0.7 0.15 230);
+
+  /* Charts */
+  --chart-1: oklch(0.7 0.15 230);
+  /* Cyan */
+  --chart-2: oklch(0.65 0.2 300);
+  /* Purple */
+  --chart-3: oklch(0.8 0.15 150);
+  /* Green */
+  --chart-4: oklch(0.9 0.1 85);
+  /* Yellow/Orange */
+  --chart-5: oklch(0.6 0.2 340);
+  /* Pink */
+
+  /* Sidebar */
+  --sidebar: oklch(0.10 0.04 260);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.7 0.15 230);
+  --sidebar-primary-foreground: oklch(0.12 0.04 260);
+  --sidebar-accent: oklch(0.2 0.04 260);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.2 0.04 260);
+  --sidebar-ring: oklch(0.7 0.15 230);
+}
+
+.dark {
+  /* Inherit root variables as they are already dark/tech themed. 
+     We can override if we want an even "darker" mode or light mode support later.
+     For now, enforcing the tech theme across the board. */
+  --background: oklch(0.12 0.04 260);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.15 0.04 260);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.15 0.04 260);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.7 0.15 230);
+  --primary-foreground: oklch(0.12 0.04 260);
+  --secondary: oklch(0.65 0.2 300);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.2 0.04 260);
+  --muted-foreground: oklch(0.7 0.04 260);
+  --accent: oklch(0.8 0.15 150);
+  --accent-foreground: oklch(0.12 0.04 260);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.3 0.05 260);
+  --input: oklch(0.3 0.05 260);
+  --ring: oklch(0.7 0.15 230);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Grid Background Utility */
+@layer utilities {
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  .bg-grid-cyan {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 190 255 / 0.1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+}
