@@ -37,7 +37,8 @@ export default function ScannerPage() {
                 { facingMode: "environment" },
                 {
                     fps: 10,
-                    qrbox: { width: 250, height: 250 }
+                    qrbox: { width: 250, height: 250 },
+                    aspectRatio: 1.0
                 },
                 (decodedText) => {
                     onScanSuccess(decodedText)
@@ -48,8 +49,20 @@ export default function ScannerPage() {
             )
         } catch (err: any) {
             console.error("Error starting scanner", err)
-            setError(`Camera Error: ${err?.message || 'Unknown error'}. Make sure you gave permission.`)
-            setIsScanning(false)
+            // Try fallback: any camera
+            try {
+                if (scannerRef.current) {
+                    await scannerRef.current.start(
+                        { facingMode: "user" },
+                        { fps: 10, qrbox: { width: 250, height: 250 } },
+                        (decodedText) => onScanSuccess(decodedText),
+                        () => { }
+                    )
+                }
+            } catch (fallbackErr: any) {
+                setError(`Mobile Camera Error: ${err?.message || err}. Fallback failed: ${fallbackErr?.message}`)
+                setIsScanning(false)
+            }
         }
     }
 
