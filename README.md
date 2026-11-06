@@ -1,3 +1,12 @@
+<!-- banner:start -->
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.svg">
+    <img alt="Prompt Engineering Portal: Team registration, payment verification and QR check-in for a campus event." src=".github/assets/banner-light.svg" width="100%">
+  </picture>
+</p>
+<!-- banner:end -->
+
 # Prompt Engineering — event registration portal
 
 Registration and door check-in site for the "Prompt Engineering Experience" college event: teams of 3 to 5 register, upload their payment screenshot and member photos, organisers approve payments from an admin dashboard, each approved team receives a QR ticket, and a phone-camera scanner marks attendance at the entrance.
